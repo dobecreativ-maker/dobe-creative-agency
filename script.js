@@ -99,24 +99,49 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 const form = document.getElementById('leadForm');
 const status = document.getElementById('formStatus');
-form.addEventListener('submit', (event) => {
+
+form.addEventListener('submit', async (event) => {
   event.preventDefault();
+
   const data = Object.fromEntries(new FormData(form).entries());
-  const subject = encodeURIComponent(`${translations[currentLang].emailSubject} — ${data.business}`);
-  const body = encodeURIComponent(
-`${translations[currentLang].emailSubject} — DOBE Creative Agency
 
-${currentLang === 'ar' ? 'الاسم' : 'Name'}: ${data.name}
-${currentLang === 'ar' ? 'النشاط التجاري' : 'Business'}: ${data.business}
-${currentLang === 'ar' ? 'طريقة التواصل' : 'Preferred contact'}: ${data.contactMethod}
-${currentLang === 'ar' ? 'بيانات التواصل' : 'Contact detail'}: ${data.contactValue}
-${currentLang === 'ar' ? 'الخدمة المطلوبة' : 'Service needed'}: ${data.service}
-${currentLang === 'ar' ? 'الهدف الأساسي' : 'Main goal'}: ${data.goal || (currentLang === 'ar' ? 'لم يُحدد' : 'Not provided')}
+  status.textContent = currentLang === 'ar'
+    ? 'جاري إرسال طلبك...'
+    : 'Sending your request...';
 
-${currentLang === 'ar' ? 'يرجى التواصل مع العميل.' : 'Please follow up with this lead.'}`
-  );
-  const recipient = 'hello@dobe.agency'; // Replace with your real business email before publishing.
-  status.dataset.submitted = 'true';
-  status.textContent = translations[currentLang].formStatus;
-  window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+  const submitButton = form.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+
+  try {
+    const response = await fetch(
+      'https://frosty-bush-e9e2.mohamedsaeed340052.workers.dev/',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok || !result.ok) {
+      throw new Error(result.error || 'Submission failed');
+    }
+
+    status.textContent = currentLang === 'ar'
+      ? 'تم إرسال طلبك بنجاح! سنتواصل معك قريبًا.'
+      : 'Your request was sent successfully! We will contact you soon.';
+
+    form.reset();
+  } catch (error) {
+    console.error(error);
+
+    status.textContent = currentLang === 'ar'
+      ? 'حصلت مشكلة في الإرسال. حاول مرة أخرى.'
+      : 'Something went wrong. Please try again.';
+  } finally {
+    submitButton.disabled = false;
+  }
 });
