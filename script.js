@@ -21,7 +21,7 @@ const translations = {
     optWhatsApp:"WhatsApp", optPhone:"Phone call", optEmail:"Email", optSelectService:"Select a service", optFullMarketing:"Full marketing support", optSocial:"Social media management", optContent:"Content creation &amp; production", optAds:"Paid advertising", optBrand:"Brand identity", optWebsite:"Website / landing page", optUnsure:"Not sure yet — let's talk",
     placeholderName:"e.g. Ahmed Mohamed", placeholderBusiness:"What’s your business called?", placeholderContact:"01xxxxxxxxx", placeholderGoal:"More qualified leads, stronger brand, more sales…",
     submitButton:"Send project details", formPrivacy:"By submitting, you agree that DOBE may contact you about this inquiry.", footerTagline:"Make your brand move.", footerLink:"Have a project? Let’s talk ↗", footerStatement:"Strategy with purpose. Creativity with direction.", backToTop:"Back to top ↑",
-    formStatus:"Your email app will open with the inquiry details. Please send the email to complete your submission.", emailSubject:"New DOBE lead"
+    formStatus:"Your request has been sent successfully. We will contact you soon.", emailSubject:"New DOBE lead"
   },
   ar: {
     announcement:"استراتيجية · إبداع · نمو", announcementRight:"خطوتك القادمة تبدأ من هنا ↗",
