@@ -56,3 +56,144 @@ body.rtl .text-link span:last-child{display:inline-block}
  body.rtl .banner-orbit{left:-40%;right:auto}
  body.rtl .footer-top>p{text-align:left}
 }
+
+/* DOBE RESULTS SECTION */
+.results-strip {
+  background: var(--ink);
+  color: #fff;
+  padding: 82px 0 34px;
+  position: relative;
+  overflow: hidden;
+}
+
+.results-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.results-heading {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  align-items: end;
+  gap: 28px;
+  margin-bottom: 42px;
+}
+
+.results-heading .section-kicker {
+  color: #ff777b;
+}
+
+.results-heading h2 {
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.05;
+  margin: 0;
+}
+
+.results-heading h2 span {
+  color: #ff555b;
+}
+
+.results-heading > p {
+  color: #bcbcbc;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #ffffff28;
+  border-bottom: 1px solid #ffffff28;
+}
+
+.result-item {
+  min-height: 175px;
+  padding: 26px 24px;
+  border-right: 1px solid #ffffff22;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.result-item:last-child {
+  border-right: 0;
+}
+
+.result-icon {
+  color: #ff555b;
+  font-size: 19px;
+  margin-bottom: 13px;
+}
+
+.result-number {
+  font-size: clamp(36px, 4.2vw, 54px);
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.result-label {
+  font-size: 11px;
+  color: #c7c7c7;
+  margin-top: 10px;
+}
+
+.results-disclaimer {
+  font-size: 9px;
+  color: #999;
+  text-align: right;
+  margin-top: 15px;
+}
+
+body.rtl .results-heading {
+  direction: rtl;
+}
+
+body.rtl .result-item {
+  text-align: right;
+  align-items: flex-start;
+}
+
+body.rtl .results-disclaimer {
+  text-align: left;
+}
+
+@media(max-width: 900px) {
+  .results-heading {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .result-item:nth-child(2) {
+    border-right: 0;
+  }
+
+  .result-item:nth-child(-n+2) {
+    border-bottom: 1px solid #ffffff22;
+  }
+}
+
+@media(max-width: 650px) {
+  .results-strip {
+    padding: 65px 0 28px;
+  }
+
+  .results-heading {
+    display: block;
+  }
+
+  .results-heading h2 {
+    margin: 18px 0;
+  }
+
+  .result-item {
+    min-height: 145px;
+    padding: 20px 16px;
+  }
+
+  .result-number {
+    font-size: 39px;
+  }
+}
