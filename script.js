@@ -1,5 +1,15 @@
 const translations = {
   en: {
+    
+resultsKicker: "RESULTS / THE NUMBERS",
+resultsTitle: "Good creative.<br><span>Real impact.</span>",
+resultsIntro: "A snapshot of the growth we create.",
+resultCampaigns: "Ad campaigns",
+resultViews: "Video views",
+resultRoas: "Average ad return",
+resultLeads: "Leads generated",
+resultsDisclaimer: "Demo figures only — replace with verified client results.",
+
     announcement:"STRATEGY · CREATIVITY · GROWTH", announcementRight:"Your next chapter starts here ↗",
     navServices:"Services", navApproach:"Our approach", navWork:"Our work", navTalk:"Let’s talk",
     eyebrow:"CREATIVE AGENCY FOR AMBITIOUS BRANDS", heroTitle:"Make your<br>brand <span class=\"red-word\">move.</span>",
