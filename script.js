@@ -34,6 +34,16 @@ resultsDisclaimer: "Demo figures only — replace with verified client results."
     formStatus:"Your request has been sent successfully. We will contact you soon.", emailSubject:"New DOBE lead"
   },
   ar: {
+    
+resultsKicker: "نتائجنا بالأرقام",
+resultsTitle: "إبداع قوي.<br><span>وتأثير حقيقي.</span>",
+resultsIntro: "أرقام بتوضح حجم النتائج اللي بنسعى نحققها.",
+resultCampaigns: "حملة إعلانية",
+resultViews: "مشاهدة للفيديوهات",
+resultRoas: "متوسط العائد الإعلاني",
+resultLeads: "عميل محتمل",
+resultsDisclaimer: "أرقام تجريبية مؤقتة وليست نتائج فعلية.",
+
     announcement:"استراتيجية · إبداع · نمو", announcementRight:"خطوتك القادمة تبدأ من هنا ↗",
     navServices:"خدماتنا", navApproach:"منهجنا", navWork:"لماذا DOBE؟", navTalk:"لنتحدث",
     eyebrow:"وكالة إبداعية للعلامات التجارية الطموحة", heroTitle:"خلّي<br>براندك <span class=\"red-word\">يتحرك.</span>",
