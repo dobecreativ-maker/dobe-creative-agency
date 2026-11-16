@@ -75,6 +75,43 @@ const langToggle = document.getElementById('langToggle');
 let currentLang = localStorage.getItem('dobe-language') || 'en';
 
 function applyLanguage(lang) {
+  
+const resultsSection = document.querySelector('.results-strip');
+
+if (resultsSection && 'IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      resultsSection.querySelectorAll('.result-number').forEach(number => {
+        const target = Number(number.dataset.count);
+        const decimals = Number(number.dataset.decimals || 0);
+        const suffix = number.dataset.suffix || '';
+        const duration = 1400;
+        const start = performance.now();
+
+        function animate(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+
+          number.textContent =
+            (target * eased).toFixed(decimals) + suffix;
+
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          }
+        }
+
+        requestAnimationFrame(animate);
+      });
+
+      observer.unobserve(resultsSection);
+    });
+  }, { threshold: 0.25 });
+
+  observer.observe(resultsSection);
+}
+
   currentLang = lang;
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
